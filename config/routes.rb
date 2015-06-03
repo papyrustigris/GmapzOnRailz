@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  get 'home/index'
-  get 'apts/index'
-  get 'broker/index'
+  root 'home#login'
+  get 'home' => 'home#index'
+  get 'food' => 'food#index'
+  get 'maps' => 'maps#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
