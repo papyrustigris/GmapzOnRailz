@@ -1,15 +1,44 @@
-<script>
-	initialize();
-</script>
-
 <nav class="navbar navbar-default" role="navigation">
-   <div class="navbar-header">
-      <a class="navbar-brand" href="/"><i class="fa fa-diamond"></i> broker.me</a>
-   </div>
-   <div>
-      <ul class="nav navbar-nav">
-         <li><a href="/apts/index">Buy</a></li>
-         <li><a href="/broker/index">Sell</a></li>
-      </ul>
-   </div>
-</nav>
+	<div class="col-md-8">
+	  <div class="navbar-header">
+	     <a class="navbar-brand" href="/"><i class="fa fa-diamond"></i> broker.me</a>
+	    <ul class="nav navbar-nav">
+	       <li><a id="list-search" href="/apts/index">Listings</a></li>
+	       <li><a id="map-search" href="/broker/index">Map</a></li>
+	    </ul>
+	  </div>	
+	</div>
+	<div class="col-md-4">
+		<div class="input-group" style="margin-top:7px;">
+	   	<span class="input-group-btn">
+	    	<button class="btn btn-info pull-right" style="margin-right:7px;">
+	    		<i class="fa fa-search"></i>
+	    	</button>
+	    <input type="text" class="form-control pull-right" style="display:none; width:0;" placeholder="Search for...">
+	  	</span>
+	  </div>
+	</div>
+</nav> 
+
+<script>
+
+$('button.btn-info').click(function () {
+
+	var searchField = $('input.form-control');
+	searchField.toggle();
+
+	if (searchField.is( ":visible" )) {
+		searchField.animate({right:"10px", width: "320px"}, "slow");
+		$('i.fa-search').removeClass('fa-search').addClass('fa-remove');
+		$('button.btn-info').removeClass('btn-info').addClass('btn-danger');
+	}
+
+	if (searchField.is( ":hidden" )) {
+		searchField.animate({right: "0px", width: "-300px"}, "slow");
+		$('i.fa-remove').removeClass('fa-remove').addClass('fa-search');
+		$('button.btn-danger').removeClass('btn-danger').addClass('btn-info');
+	}
+
+});
+
+</script>
